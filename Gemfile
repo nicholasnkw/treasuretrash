@@ -31,6 +31,9 @@ gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 
 gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
 
+gem 'validates_zipcode'
+
+
 # omniauth-facebook
 gem 'devise'
 gem 'omniauth-facebook'
