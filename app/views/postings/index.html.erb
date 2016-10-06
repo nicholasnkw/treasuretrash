@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Postings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Condition</th>
+      <th>Category</th>
+      <th>full_address</th>
+      <th>Availability</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @postings.each do |posting| %>
+      <tr>
+        <td><%= posting.title %></td>
+        <td><%= posting.description %></td>
+        <td><%= posting.condition %></td>
+        <td><%= posting.category %></td>
+        <td><%= posting.full_address %></td>
+        <td><%= posting.availability %></td>
+        <td><%= link_to 'Show', posting %></td>
+        <td><%= link_to 'Edit', edit_posting_path(posting) %></td>
+        <td><%= link_to 'Destroy', posting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Posting', new_posting_path %>

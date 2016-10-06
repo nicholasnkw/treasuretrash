@@ -1,0 +1,56 @@
+<%= form_for(@posting) do |f| %>
+  <% if @posting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@posting.errors.count, "error") %> prohibited this posting from being saved:</h2>
+
+      <ul>
+      <% @posting.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :condition %><br>
+    <%= f.select(:condition, ['New', 'Like New', 'Fair', 'Salvage'])%>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.select(:category, ['Books', 'Appliances', 'Gadgets', 'Furniture', 'Toys'])%>
+  </div>
+
+  <div class="field">
+    <%= f.label :address1 %>
+    <%= f.text_field :address1 %>
+  </div>
+  <div class="field">
+    <%= f.label :address2 %>
+    <%= f.text_field :address2 %>
+  </div>
+  <div class="field">
+    <%= f.label :city %>
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :state %>
+    <%= f.text_field :state %>
+  </div>
+  <div class="field">
+    <%= f.label :zipcode %>
+    <%= f.text_field :zipcode %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
