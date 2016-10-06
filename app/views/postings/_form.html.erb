@@ -21,30 +21,30 @@
   </div>
   <div class="field">
     <%= f.label :condition %><br>
-    <%= f.select(:condition, ['New', 'Like New', 'Fair', 'Salvage'])%>
+    <%= f.select(:condition, ['-','New', 'Like New', 'Fair', 'Salvage'])%>
   </div>
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.select(:category, ['Books', 'Appliances', 'Gadgets', 'Furniture', 'Toys'])%>
+    <%= f.select(:category, ['-','Books', 'Appliances', 'Gadgets', 'Furniture', 'Toys','Others'])%>
   </div>
   <div class="field">
-    <%= f.label :address1 %>
+    <%= f.label :address1 %><br>
     <%= f.text_field :address1 %>
   </div>
   <div class="field">
-    <%= f.label :address2 %>
+    <%= f.label :address2 %><br>
     <%= f.text_field :address2 %>
   </div>
   <div class="field">
-    <%= f.label :city %>
+    <%= f.label :city %><br>
     <%= f.text_field :city %>
   </div>
   <div class="field">
-    <%= f.label :state %>
-    <%= f.text_field :state %>
+    <%= f.label :state %><br>
+    <%= f.select(:state, ['-','Penang', 'Selangor', 'Johor', 'Malacca', 'Perak','Kedah','Pahang','Terengganu','Kelatan','Perlis','Negeri Sembilan'])%>
   </div>
   <div class="field">
-    <%= f.label :zipcode %>
+    <%= f.label :zipcode %><br>
     <%= f.text_field :zipcode %>
   </div>
   <div>
