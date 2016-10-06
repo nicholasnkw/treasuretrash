@@ -42,6 +42,23 @@
   <%= @posting.availability %>
 </p> -->
 
+<!-- COMMENTS SECTION -->
+<h2>Comments</h2>
+  <% @posting.comments.each do |input| %>
+    <%= input.user.email %>
+    <%= time_ago_in_words(input.created_at) %><br>
+    <%= input.comment %><br>
+    <% if input.user_id == current_user.id %>
+      <%= link_to 'Edit', edit_posting_comment_path(input.posting_id, input.id) %>
+      <%= link_to 'Delete', posting_comment_path(input.posting_id, input.id), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+    <% end %>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= render 'comments/form' %>
+<% end %>
+<br>
+
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>

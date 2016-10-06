@@ -1,7 +1,7 @@
 class Posting < ActiveRecord::Base
 	belongs_to :user
 	# has_many :transactions, dependent: :destroy
-	# has_many :comments, dependent: :destroy
+	has_many :comments, dependent: :destroy
 	validates :title, presence: true
 	validates :description, presence: true
 	validates :condition, presence: true
