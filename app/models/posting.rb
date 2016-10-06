@@ -1,12 +1,16 @@
 class Posting < ActiveRecord::Base
 	belongs_to :user
-	has_many :transactions, dependent: :destroy
-	has_many :comments, dependent: :destroy
+	# has_many :transactions, dependent: :destroy
+	# has_many :comments, dependent: :destroy
 	validates :title, presence: true
 	validates :description, presence: true
 	validates :condition, presence: true
 	validates :category, presence: true
-	validates :address1, presence: true
+	validates :city, presence: true
+	validates :state, presence: true
+	validates :zipcode, zipcode: true
+	validates :zipcode, zipcode: { country_code: :my }
+	validates :zipcode, zipcode: { country_code_attribute: :zipcode }
 	geocoded_by :full_address
 	after_validation :geocode, if: ->(posting){ self.full_address.present? and self.full_address_changed? }
 
@@ -19,6 +23,7 @@ class Posting < ActiveRecord::Base
 		attrs.any?{|a| send "#{a}_changed?"}
 	end
 
-end
+	def country_alpha2
 
-# if: :address_changed?
+	end
+end
