@@ -11,24 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161006034007) do
+ActiveRecord::Schema.define(version: 20161006084811) do
 
-  create_table "postings", force: :cascade do |t|
-    t.string   "title"
-    t.text     "description"
-    t.string   "condition"
-    t.string   "category"
-    t.string   "address1"
-    t.string   "address2"
-    t.string   "city"
-    t.string   "state"
-    t.string   "zipcode"
-    t.boolean  "availability", default: true
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.float    "latitude"
-    t.float    "longitude"
-  end
+# Could not dump table "postings" because of following NoMethodError
+#   undefined method `[]' for nil:NilClass
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
