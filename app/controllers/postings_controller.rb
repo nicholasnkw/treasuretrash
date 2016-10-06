@@ -10,7 +10,7 @@ class PostingsController < ApplicationController
   # GET /postings/1
   # GET /postings/1.json
   def show
-    
+
   end
 
   # GET /postings/new
@@ -44,7 +44,7 @@ class PostingsController < ApplicationController
     respond_to do |format|
       if @posting.update(posting_params)
         format.html { redirect_to @posting, notice: 'Posting was successfully updated.' }
-        format.json { render :show, status: :ok, full_address: @posting }
+        format.json { render :show, status: :ok, full_address: @posting.full_address }
       else
         format.html { render :edit }
         format.json { render json: @posting.errors, status: :unprocessable_entity }
