@@ -14,6 +14,8 @@ class Posting < ActiveRecord::Base
 	geocoded_by :full_address
 	after_validation :geocode, if: ->(posting){ self.full_address.present? and self.full_address_changed? }
 
+	mount_uploaders :avatars, AvatarUploader
+	
 	def full_address
 		[address1, address2, city, state, zipcode].join(', ')
 	end
