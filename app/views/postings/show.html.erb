@@ -8,6 +8,10 @@
 
 <p id="notice"><%= notice %></p>
 
+<% @posting.avatars.each do |x| %>
+  <%= image_tag (x.medium.url) %>
+<%end%>
+
 <p>
   <strong>Title:</strong>
   <%= @posting.title %>

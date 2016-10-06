@@ -27,7 +27,6 @@
     <%= f.label :category %><br>
     <%= f.select(:category, ['Books', 'Appliances', 'Gadgets', 'Furniture', 'Toys'])%>
   </div>
-
   <div class="field">
     <%= f.label :address1 %>
     <%= f.text_field :address1 %>
@@ -47,6 +46,9 @@
   <div class="field">
     <%= f.label :zipcode %>
     <%= f.text_field :zipcode %>
+  </div>
+  <div>
+    <%= f.file_field :avatars, multiple: true %>
   </div>
 
   <div class="actions">
