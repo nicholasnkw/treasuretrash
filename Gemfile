@@ -25,6 +25,7 @@ gem 'figaro'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # omniauth-facebook
+gem 'devise'
 gem 'omniauth-facebook'
  
 # Use ActiveModel has_secure_password
