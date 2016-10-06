@@ -24,11 +24,17 @@ gem 'figaro'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
 
 gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 
 gem 'underscore-rails', '~> 1.8', '>= 1.8.3'
+
+# omniauth-facebook
+gem 'devise'
+gem 'omniauth-facebook'
+ 
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
