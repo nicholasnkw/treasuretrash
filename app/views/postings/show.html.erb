@@ -4,8 +4,6 @@
 
 
 
-
-
 <p id="notice"><%= notice %></p>
 
 <% @posting.avatars.each do |x| %>
@@ -43,7 +41,7 @@
 </p> -->
 
 <!-- COMMENTS SECTION -->
-<h2>Comments</h2>
+<!-- <h2>Comments</h2>
   <% @posting.comments.each do |input| %>
     <%= input.user.email %>
     <%= time_ago_in_words(input.created_at) %><br>
@@ -57,7 +55,7 @@
   <% if user_signed_in? %>
     <%= render 'comments/form' %>
 <% end %>
-<br>
+<br> -->
 
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
@@ -85,6 +83,7 @@
 
 <%= link_to 'Edit', edit_posting_path(@posting) %> |
 <%= link_to 'Back', postings_path %>
+
 
 <!-- http://www.clker.com/cliparts/c/I/g/P/d/h/google-maps-pin-blue-md.png -->
 

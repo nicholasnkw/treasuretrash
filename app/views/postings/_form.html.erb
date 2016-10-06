@@ -15,38 +15,47 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </div>
+
   <div class="field">
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+
   <div class="field">
     <%= f.label :condition %><br>
     <%= f.select(:condition, ['-','New', 'Like New', 'Fair', 'Salvage'])%>
   </div>
+
   <div class="field">
     <%= f.label :category %><br>
     <%= f.select(:category, ['-','Books', 'Appliances', 'Gadgets', 'Furniture', 'Toys','Others'])%>
   </div>
+
   <div class="field">
     <%= f.label :address1 %><br>
     <%= f.text_field :address1 %>
   </div>
+
   <div class="field">
     <%= f.label :address2 %><br>
     <%= f.text_field :address2 %>
   </div>
+
   <div class="field">
     <%= f.label :city %><br>
     <%= f.text_field :city %>
   </div>
+
   <div class="field">
     <%= f.label :state %><br>
     <%= f.select(:state, ['-','Penang', 'Selangor', 'Johor', 'Malacca', 'Perak','Kedah','Pahang','Terengganu','Kelatan','Perlis','Negeri Sembilan'])%>
   </div>
+
   <div class="field">
     <%= f.label :zipcode %><br>
     <%= f.text_field :zipcode %>
   </div>
+  
   <div>
     <%= f.file_field :avatars, multiple: true %>
   </div>
