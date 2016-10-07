@@ -10,7 +10,7 @@ class PostingsController < ApplicationController
   # GET /postings/1
   # GET /postings/1.json
   def show
-    
+    @comment = Comment.new 
   end
 
   # GET /postings/new
@@ -44,7 +44,7 @@ class PostingsController < ApplicationController
     respond_to do |format|
       if @posting.update(posting_params)
         format.html { redirect_to @posting, notice: 'Posting was successfully updated.' }
-        format.json { render :show, status: :ok, full_address: @posting }
+        format.json { render :show, status: :ok, full_address: @posting.full_address }
       else
         format.html { render :edit }
         format.json { render json: @posting.errors, status: :unprocessable_entity }
@@ -70,6 +70,6 @@ class PostingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def posting_params
-      params.require(:posting).permit(:title, :description, :condition, :category, :address1, :address2, :city, :state, :zipcode, :availability)
+      params.require(:posting).permit(:title, :description, :condition, :category, :address1, :address2, :city, :state, :zipcode, :availability,{avatars:[]})
     end
 end

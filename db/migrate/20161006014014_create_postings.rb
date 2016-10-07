@@ -10,7 +10,7 @@ class CreatePostings < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :zipcode
-      t.boolean :availability
+      t.boolean :availability, default: :true
 
       t.timestamps null: false
     end

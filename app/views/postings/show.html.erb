@@ -4,9 +4,11 @@
 
 
 
-
-
 <p id="notice"><%= notice %></p>
+
+<% @posting.avatars.each do |x| %>
+  <%= image_tag (x.medium.url) %>
+<%end%>
 
 <p>
   <strong>Title:</strong>
@@ -38,6 +40,23 @@
   <%= @posting.availability %>
 </p> -->
 
+<!-- COMMENTS SECTION -->
+<!-- <h2>Comments</h2>
+  <% @posting.comments.each do |input| %>
+    <%= input.user.email %>
+    <%= time_ago_in_words(input.created_at) %><br>
+    <%= input.comment %><br>
+    <% if input.user_id == current_user.id %>
+      <%= link_to 'Edit', edit_posting_comment_path(input.posting_id, input.id) %>
+      <%= link_to 'Delete', posting_comment_path(input.posting_id, input.id), method: :delete, data: { confirm: 'Are you sure?' } %><br>
+    <% end %>
+  <% end %>
+
+  <% if user_signed_in? %>
+    <%= render 'comments/form' %>
+<% end %>
+<br> -->
+
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
 </div>
@@ -50,7 +69,7 @@
         "lat": <%= @posting.latitude %>,
         "lng": <%= @posting.longitude %>,
         "picture": {
-        "url": "http://www.arroyocarboneras.com/imagenes/secciones/ubicacion/geo.png",
+        "url": "http://icons.iconarchive.com/icons/paomedia/small-n-flat/32/map-marker-icon.png",
           "width":  36,
           "height": 36
         },
@@ -64,6 +83,7 @@
 
 <%= link_to 'Edit', edit_posting_path(@posting) %> |
 <%= link_to 'Back', postings_path %>
+
 
 <!-- http://www.clker.com/cliparts/c/I/g/P/d/h/google-maps-pin-blue-md.png -->
 
