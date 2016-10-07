@@ -17,6 +17,19 @@
 	<%= link_to "logout", destroy_user_session_path, method: :delete if user_signed_in? %>
 </div>
 
+<%= form_tag search_path, method: :get do %>
+  <p>
+    <%= text_field_tag :location, params[:location], placeholder: "Location" %>
+    <%= text_field_tag :category, params[:category], placeholder: "Category" %>
+    <%= text_field_tag :others, params[:others], placeholder: "Description" %>
+    <%= submit_tag "Search" %>
+  </p>
+<% end %>
+
+<div>
+  <%= link_to "All Postings", postings_path %>
+</div>
+
 <div><%=link_to "Current User", user_path(current_user) if user_signed_in? %></div>
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
