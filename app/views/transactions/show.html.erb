@@ -38,5 +38,10 @@
 </p>
 
 <%# form_for @transaction, url: posting_transaction_path(@transaction.posting, @transaction), html: {method: "patch"} do |f| %>
-	<%= button_to "Get This Item",  controller: "transactions", action: "update", success: true %>
+<%# button_to "I've Got It!",  controller: "transactions", method: "patch", action: "update", success: true %>
+<%= form_for(@transaction, url: posting_transactions_path(@transaction.posting, @transaction), html: {method: "patch"}) do |f| %>
+  <%= f.hidden_field :status, :value => true %>
+  <%= f.hidden_field :success, :value => false %>
+  <%= f.submit %>
+<% end %>
 <%# end %>
