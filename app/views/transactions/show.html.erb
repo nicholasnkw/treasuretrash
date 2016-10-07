@@ -31,8 +31,10 @@
 
 <p>
 	<strong>Giver's details</strong>
-	<%= @transaction.posting.user.first_name %>
-	<%= @transaction.posting.user.last_name %>
-	<%= @transaction.posting.user.email %>
-	<%= @transaction.posting.user.phone_no %>
+  <br>
+	Name: <%= @transaction.posting.user.first_name + @transaction.posting.user.last_name %>
+  <br>
+	Email: <%= @transaction.posting.user.email %>
+  <br>
+	Phone:<%= @transaction.posting.user.phone_no %>
 </p>
