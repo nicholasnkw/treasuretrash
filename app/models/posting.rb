@@ -17,7 +17,12 @@ class Posting < ActiveRecord::Base
 
 	mount_uploaders :avatars, AvatarUploader
 	skip_callback :commit, :after, :remove_previously_stored_avatars!
-	
+
+	include PgSearch 
+	pg_search_scope :search_by_location, :against => [:address1, :address2, :city, :state, :zipcode]
+	pg_search_scope :search_by_category, :against => [:category]
+	pg_search_scope :search_by_others, :against => [:title, :description, :condition]
+
 	def full_address
 		[address1, address2, city, state, zipcode].join(', ')
 	end
