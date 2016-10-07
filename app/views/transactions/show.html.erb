@@ -36,3 +36,7 @@
 	<%= @transaction.posting.user.email %>
 	<%= @transaction.posting.user.phone_no %>
 </p>
+
+<%# form_for @transaction, url: posting_transaction_path(@transaction.posting, @transaction), html: {method: "patch"} do |f| %>
+	<%= button_to "Get This Item",  controller: "transactions", action: "update", success: true %>
+<%# end %>

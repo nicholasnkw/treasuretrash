@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   	# :confirmable, :lockable, :timeoutable and :omniauthable
   	has_many :comments, dependent: :destroy
   	has_many :postings, dependent: :destroy
+  	has_many :transactions, dependent: :destroy
 
     mount_uploader :avatar, AvatarUploader
 
