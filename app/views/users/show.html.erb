@@ -4,10 +4,17 @@
 <div>
 
 	<div>
-		<%= image_tag(@user.avatar_url(:profile)) if @user.avatar? %> 
-		
+			
 		<% if @user.avatar.file.nil?  %>
-		 	<img src='data:image/png;base64,<%=@user.identicon %>'> 
+
+			<% if @user.facebook_image.nil? %>
+		 			<img src='data:image/png;base64,<%=@user.identicon %>'> 
+		 	<% else %> 
+		 			<%= image_tag(@user.facebook_image) %> 
+		 	<% end %>
+	
+	<% else %> 
+				<%= image_tag(@user.avatar_url(:profile))%>
 		<% end %>
 
 	</div>
