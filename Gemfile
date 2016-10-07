@@ -25,6 +25,7 @@ gem 'figaro'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'pg_search', '~> 1.0', '>= 1.0.5'
 
 gem 'geocoder', '~> 1.3', '>= 1.3.7'
 

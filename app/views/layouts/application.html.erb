@@ -13,6 +13,7 @@
 
 <body>
 
+<<<<<<< HEAD
 <nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -50,6 +51,24 @@
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
+=======
+<%= form_tag search_path, method: :get do %>
+  <p>
+    <%= text_field_tag :location, params[:location], placeholder: "Location" %>
+    <%= text_field_tag :category, params[:category], placeholder: "Category" %>
+    <%= text_field_tag :others, params[:others], placeholder: "Description" %>
+    <%= submit_tag "Search" %>
+  </p>
+<% end %>
+
+<div>
+  <%= link_to "All Postings", postings_path %>
+</div>
+
+<div><%=link_to "Current User", user_path(current_user) if user_signed_in? %></div>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+>>>>>>> f788e45f7c4d58e976a5bd7f0068e00719125ff3
 
       <ul class="nav navbar-nav navbar-right">
 
