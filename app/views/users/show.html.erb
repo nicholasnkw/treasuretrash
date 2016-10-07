@@ -2,6 +2,24 @@
 
 <%=link_to "Edit", edit_user_registration_path%>
 <div>
+
+	<div>
+			
+		<% if @user.avatar.file.nil?  %>
+
+			<% if @user.facebook_image.nil? %>
+		 			<img src='data:image/png;base64,<%=@user.identicon %>'> 
+		 	<% else %> 
+		 			<%= image_tag(@user.facebook_image) %> 
+		 	<% end %>
+	
+	<% else %> 
+				<%= image_tag(@user.avatar_url(:profile))%>
+		<% end %>
+
+	</div>
+
+
 	<table style="width:100%">
 	  	<tr>
 	  		<th>ID</th>

@@ -42,6 +42,9 @@ gem 'mini_magick'
 # omniauth-facebook
 gem 'devise'
 gem 'omniauth-facebook'
+
+#randomly generated default pic
+gem 'ruby_identicon'
  
 
 # Use ActiveModel has_secure_password
