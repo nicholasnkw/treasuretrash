@@ -11,6 +11,7 @@ class PostingsController < ApplicationController
   # GET /postings/1.json
   def show
     @comment = Comment.new 
+    @transaction = Transaction.new
   end
 
   # GET /postings/new
@@ -25,8 +26,7 @@ class PostingsController < ApplicationController
   # POST /postings
   # POST /postings.json
   def create
-    @posting = Posting.new(posting_params)
-
+    @posting = current_user.postings.new(posting_params)
     respond_to do |format|
       if @posting.save
         format.html { redirect_to @posting, notice: 'Posting was successfully created.' }

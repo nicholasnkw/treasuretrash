@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007045804) do
+ActiveRecord::Schema.define(version: 20161007083427) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,7 +40,10 @@ ActiveRecord::Schema.define(version: 20161007045804) do
     t.float    "latitude"
     t.float    "longitude"
     t.json     "avatars"
+    t.integer  "user_id"
   end
+
+  add_index "postings", ["user_id"], name: "index_postings_on_user_id", using: :btree
 
   create_table "transactions", force: :cascade do |t|
     t.integer  "posting_id"
@@ -48,9 +51,11 @@ ActiveRecord::Schema.define(version: 20161007045804) do
     t.boolean  "success"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "transactions", ["posting_id"], name: "index_transactions_on_posting_id", using: :btree
+  add_index "transactions", ["user_id"], name: "index_transactions_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
