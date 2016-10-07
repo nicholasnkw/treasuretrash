@@ -12,6 +12,10 @@ include CarrierWave::MiniMagick
     process :resize_to_fill => [400, 400]
   end
 
+  version :nav_avatar do 
+    process :resize_to_fill => [50, 50]
+  end
+
   version :large do
     process resize_to_limit: [800, 800]
   end
