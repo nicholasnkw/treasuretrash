@@ -1,15 +1,17 @@
 class TransactionsController < ApplicationController
 
   def show
-    
+    @transaction = Transaction.find(params[:id])
   end
   
   def create
-    @transaction = Transaction.new
-
+    # @posting = Posting.find(params[:posting_id])
+    @transaction = Transaction.new(transaction_params)
+    @transaction.posting_id = params[:posting_id]
+    @transaction.user_id = current_user.id 
     respond_to do |format|
       if @transaction.save
-        format.html { redirect_to @transaction.posting, notice: 'Transaction was successfully created.' }
+        format.html { redirect_to posting_transaction_path(@transaction.posting, @transaction.id), notice: 'Transaction was successfully created.' }
       #   format.json { render :show, status: :created, full_address: @posting }
       # # else
       #   format.html { render :new }

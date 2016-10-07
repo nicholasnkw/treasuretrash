@@ -10,5 +10,11 @@ Rails.application.routes.draw do
     sessions: 'users/sessions' ,
     registrations: 'users/registrations'
   }
+
   resources :users, only: [:show, :update, :edit]
+  resources :users do 
+    member do 
+      get "transactions", to: "users#transactions"
+    end
+  end
 end

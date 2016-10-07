@@ -41,7 +41,7 @@
 </p> -->
 
 <!-- COMMENTS SECTION -->
-<!-- <h2>Comments</h2>
+<h2>Comments</h2>
   <% @posting.comments.each do |input| %>
     <%= input.user.email %>
     <%= time_ago_in_words(input.created_at) %><br>
@@ -55,7 +55,7 @@
   <% if user_signed_in? %>
     <%= render 'comments/form' %>
 <% end %>
-<br> -->
+<br>
 
 <div style='width: 800px;'>
   <div id="map" style='width: 800px; height: 400px;'></div>
@@ -82,7 +82,12 @@
 </script>
 
 <%= link_to 'Edit', edit_posting_path(@posting) %> |
-<%= link_to 'Back', postings_path %>
+<%= link_to 'Back', :back %> |
+<%= form_for(@transaction, url: posting_transactions_path(@posting.id), html: {method: "post"}) do |f| %>
+  <%= f.hidden_field :status, :value => true %>
+  <%= f.hidden_field :success, :value => false %>
+  <%= f.submit %>
+<% end %>
 
 
 <!-- http://www.clker.com/cliparts/c/I/g/P/d/h/google-maps-pin-blue-md.png -->
