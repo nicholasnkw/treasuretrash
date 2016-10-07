@@ -1,3 +1,6 @@
+
+
+
 <%= form_for @posting do |f| %>
   <% if @posting.errors.any? %>
     <div id="error_explanation">
@@ -11,57 +14,69 @@
     </div>
   <% end %>
 
+<form>
+  <div class="form-group">
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+  </div>
   </div>
 
+  <div class="form-group">
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control" %>
+  </div>
   </div>
 
+  <div class="form-group">
   <div class="field">
     <%= f.label :condition %><br>
     <%= f.select(:condition, ['-','New', 'Like New', 'Fair', 'Salvage'])%>
   </div>
+  </div>
 
   <div class="field">
     <%= f.label :category %><br>
-    <%= f.select(:category, ['-','Books', 'Appliances', 'Gadgets', 'Furniture', 'Toys','Others'])%>
+    <%= f.select(:category, ['-', 'Appliances', 'Books', 'Furniture', 'Gadgets', 'Toys','Others'])%>
   </div>
 
   <div class="field">
     <%= f.label :address1 %><br>
-    <%= f.text_field :address1 %>
+    <%= f.text_field :address1, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :address2 %><br>
-    <%= f.text_field :address2 %>
+    <%= f.text_field :address2, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :city, class: "form-control" %>
   </div>
 
   <div class="field">
     <%= f.label :state %><br>
-    <%= f.select(:state, ['-','Penang', 'Selangor', 'Johor', 'Malacca', 'Perak','Kedah','Pahang','Terengganu','Kelatan','Perlis','Negeri Sembilan'])%>
+    <%= f.select(:state, ['-','Penang', 'Selangor', 'Johor', 'Melaka', 'Perak','Kedah','Pahang','Terengganu','Kelantan','Perlis','Negeri Sembilan', 'Sabah', 'Sarawak', 'Wilayah Persekutuan'])%>
   </div>
 
   <div class="field">
     <%= f.label :zipcode %><br>
-    <%= f.text_field :zipcode %>
+    <%= f.text_field :zipcode, class: "form-control" %>
   </div>
   
   <div>
     <%= f.file_field :avatars, multiple: true %>
   </div>
 
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-default" %>
   </div>
 
 <% end %>
+
+</form>
