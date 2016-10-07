@@ -1,8 +1,8 @@
 class CommentsController < ApplicationController
-	before_action :find_posting, only: [:create, :edit, :destroy]
+	before_action :find_posting
+	before_action :find_comment, only: [:edit, :update, :destroy]
 
 	def create
-		@posting = Posting.find(params[:posting_id])
 		@comment = @posting.comments.create(comment_params)
 		@comment.user_id = current_user.id
 		@comment.save
@@ -11,8 +11,6 @@ class CommentsController < ApplicationController
 	end
 
 	def edit
-		@posting = Posting.find(params[:posting_id])
-		@comment = @posting.comments.find(params[:id])
 	end
 
 	def update
@@ -24,8 +22,6 @@ class CommentsController < ApplicationController
 	end
 
 	def destroy
-		@posting = Posting.find(params[:posting_id])
-		@comment = @posting.comments.find(params[:id])
 		@comment.destroy
 		redirect_to posting_path(@posting)
 	end
@@ -33,6 +29,10 @@ class CommentsController < ApplicationController
 	private
 	def find_posting
 		@posting = Posting.find(params[:posting_id])
+	end
+
+	def find_comment
+		@comment = @posting.comments.find(params[:id])
 	end
 
 	def comment_params

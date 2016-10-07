@@ -15,6 +15,7 @@ class Posting < ActiveRecord::Base
 	after_validation :geocode, if: ->(posting){ self.full_address.present? and self.full_address_changed? }
 
 	mount_uploaders :avatars, AvatarUploader
+	skip_callback :commit, :after, :remove_previously_stored_avatars!
 	
 	def full_address
 		[address1, address2, city, state, zipcode].join(', ')
