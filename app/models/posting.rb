@@ -33,6 +33,6 @@ class Posting < ActiveRecord::Base
 	end
 
 	def country_alpha2
-
 	end
+
 end
