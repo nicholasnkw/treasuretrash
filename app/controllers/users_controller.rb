@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
+  
+    
+
   def show
   	@user = User.find(params[:id])
+    # @base64_identicon
   end
 
   def edit

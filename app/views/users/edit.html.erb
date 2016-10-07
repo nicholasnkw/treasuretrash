@@ -1,7 +1,14 @@
 <!-- edit.html.erb -->
 <h1> User Change password page</h1>
 
-<%= form_for(@user, :url => { :action => "update" } ) do |f| %>
+<%= form_for(@user, :url => { :action => "update" }, :html => {:multipart => true} ) do |f| %>
+
+  <div class="field">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
+    <% f.hidden_field :avatar_cache %>
+  </div>
+
   <div class="field">
     <%= f.label :password, "Password" %><br />
     <%= f.password_field :password, :autocomplete => "off"  %>

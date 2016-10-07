@@ -8,6 +8,10 @@ include CarrierWave::MiniMagick
 
   #make sure minimagick is included
 
+  version :profile  do 
+    process :resize_to_fill => [400, 400]
+  end
+
   version :large do
     process resize_to_limit: [800, 800]
   end
