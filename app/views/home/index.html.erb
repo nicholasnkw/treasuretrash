@@ -4,7 +4,7 @@
 <div class="container-fluid text-center jumbotron">
 
     <%= form_tag search_path, method: :get do %>
-            <%= text_field_tag :location, params[:location], placeholder: "Location" %>
+        <%= text_field_tag :location, params[:location], placeholder: "Location" %>
         <%= text_field_tag :category, params[:category], placeholder: "Category" %>
         <%= text_field_tag :others, params[:others], placeholder: "Description" %>
         <%= submit_tag "Search", class: "btn btn-default" %>

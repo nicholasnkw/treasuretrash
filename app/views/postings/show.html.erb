@@ -3,42 +3,50 @@
 <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 
 
-
 <p id="notice"><%= notice %></p>
 
-<% @posting.avatars.each do |x| %>
-  <%= image_tag (x.medium.url) %>
-<%end%>
 
-<p>
-  <strong>Title:</strong>
-  <%= @posting.title %>
-</p>
+<div class="row">
+  <div class="col-md-8 col-offset-2">
+    <div class="panel panel-default">
 
-<p>
-  <strong>Description:</strong>
-  <%= @posting.description %>
-</p>
+          <% @posting.avatars.each do |x| %>
+            <%= image_tag (x.medium.url) %>
+          <%end%>
 
-<p>
-  <strong>Condition:</strong>
-  <%= @posting.condition %>
-</p>
+          <p>
+            <strong>Title:</strong>
+            <%= @posting.title %>
+          </p>
 
-<p>
-  <strong>Category:</strong>
-  <%= @posting.category %>
-</p>
+          <p>
+            <strong>Description:</strong>
+            <%= @posting.description %>
+          </p>
 
-<p>
-  <strong>Location:</strong>
-  <%= @posting.full_address %>
-</p>
+          <p>
+            <strong>Condition:</strong>
+            <%= @posting.condition %>
+          </p>
 
-<p>
-  <strong>Availability:</strong>
-  <%= @posting.available? %>
-</p>
+          <p>
+            <strong>Category:</strong>
+            <%= @posting.category %>
+          </p>
+
+          <p>
+            <strong>Location:</strong>
+            <%= @posting.full_address %>
+          </p>
+
+          <p>
+            <strong>Availability:</strong>
+            <%= @posting.available? %>
+          </p>
+    </div>
+  </div>
+</div>
+
 
 <!-- COMMENTS SECTION -->
 <h2>Comments</h2>
