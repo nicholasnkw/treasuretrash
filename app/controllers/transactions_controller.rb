@@ -7,7 +7,6 @@ class TransactionsController < ApplicationController
   def create
     # @posting = Posting.find(params[:posting_id])
     @posting = Posting.find(params[:posting_id])
-    
     if Transaction.find_by(posting_id: @posting.id, user_id: current_user.id)
       flash[:notice] = "Transaction already been made"
       redirect_to posting_path(@posting.id)
@@ -32,16 +31,18 @@ class TransactionsController < ApplicationController
   end
 
   def update
+    @transaction = Transaction.find(params[:id])
     @transaction.update(transaction_params)
     render 'show'
   end
 
 
 
+
+
   private
     # Never trust parameters from the scary internet, only allow the white list through.
     def transaction_params
-      byebug
       params.require(:transaction).permit(:status, :success)
     end
 end

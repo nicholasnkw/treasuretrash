@@ -31,15 +31,24 @@
 
 <p>
 	<strong>Giver's details</strong>
-	<%= @transaction.posting.user.first_name %>
-	<%= @transaction.posting.user.last_name %>
-	<%= @transaction.posting.user.email %>
+	<%= @transaction.posting.user.first_name %>, 
+	<%= @transaction.posting.user.last_name %>,
+	<%= @transaction.posting.user.email %>,
 	<%= @transaction.posting.user.phone_no %>
 </p>
 
+<p>
+  <strong>Taker's details</strong>
+  <%= @transaction.user.first_name %>,
+  <%= @transaction.user.last_name %>,
+  <%= @transaction.user.email %>,
+  <%= @transaction.user.phone_no %>
+</p>
+
+
 <%# form_for @transaction, url: posting_transaction_path(@transaction.posting, @transaction), html: {method: "patch"} do |f| %>
 <%# button_to "I've Got It!",  controller: "transactions", method: "patch", action: "update", success: true %>
-<%= form_for(@transaction, url: posting_transactions_path(@transaction.posting, @transaction), html: {method: "patch"}) do |f| %>
+<%= form_for @transaction, url: {controller: :transactions, action: :update} do |f| %>
   <%= f.hidden_field :status, :value => true %>
   <%= f.hidden_field :success, :value => false %>
   <%= f.submit %>
