@@ -32,6 +32,14 @@ class Posting < ActiveRecord::Base
 	end
 
 	def country_alpha2
-
 	end
+
+	def available?
+		if self.availability == true then
+			true
+		else
+			false
+		end
+	end
+
 end
