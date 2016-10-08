@@ -1,7 +1,6 @@
 class Posting < ActiveRecord::Base
 	belongs_to :user
-	has_many :transactions
-	# has_many :transactions, dependent: :destroy
+	has_many :transactions, dependent: :destroy
 	has_many :comments, dependent: :destroy
 	validates :title, presence: true
 	validates :description, presence: true
@@ -33,6 +32,14 @@ class Posting < ActiveRecord::Base
 	end
 
 	def country_alpha2
+	end
+
+	def available?
+		if self.availability == true then
+			true
+		else
+			false
+		end
 	end
 
 end

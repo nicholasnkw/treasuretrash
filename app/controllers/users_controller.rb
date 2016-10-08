@@ -22,9 +22,10 @@ class UsersController < ApplicationController
   end
 
   def transactions
-    # @transaction = Transactions.find_by(user_id: params[:id])
   end
 
+  def postings
+  end
 
   private
   def user_params

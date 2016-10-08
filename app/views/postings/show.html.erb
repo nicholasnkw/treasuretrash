@@ -5,6 +5,7 @@
 
 <p id="notice"><%= notice %></p>
 
+
 <div class="row">
   <div class="col-md-8 col-offset-2">
     <div class="panel panel-default">
@@ -37,13 +38,15 @@
             <strong>Location:</strong>
             <%= @posting.full_address %>
           </p>
+
+          <p>
+            <strong>Availability:</strong>
+            <%= @posting.available? %>
+          </p>
     </div>
   </div>
 </div>
-<!-- <p>
-  <strong>Availability:</strong>
-  <%= @posting.availability %>
-</p> -->
+
 
 <!-- COMMENTS SECTION -->
 <h2>Comments</h2>
@@ -93,7 +96,6 @@
   <%= f.hidden_field :success, :value => false %>
   <%= f.submit %>
 <% end %>
-
 
 <!-- http://www.clker.com/cliparts/c/I/g/P/d/h/google-maps-pin-blue-md.png -->
 
