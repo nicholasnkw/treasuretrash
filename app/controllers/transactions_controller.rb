@@ -9,10 +9,11 @@ class TransactionsController < ApplicationController
     @posting = Posting.find(params[:posting_id])
     if Transaction.find_by(posting_id: @posting.id, user_id: current_user.id)
       flash[:notice] = "Transaction already been made"
-      redirect_to posting_path(@posting.id)
+      redirect_to posting_transaction_path(@posting.transaction.id)
     else
       a = current_user.transactions.new(posting_id: @posting.id, status: true)
       a.save
+      @posting.update(availability: false)
       redirect_to posting_transaction_path(@posting.id, a.id)
     end
 
@@ -38,7 +39,14 @@ class TransactionsController < ApplicationController
     render 'show'
   end
 
-
+ def destroy
+    @posting = Posting.find(params[:posting_id])
+    @transaction = Transaction.find(params[:id])
+    @transaction.destroy
+    @posting.update(availability: true)
+    
+    redirect_to posting_path(@posting.id)
+ end
 
 
 
