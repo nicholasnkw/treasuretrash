@@ -3,3 +3,11 @@ body {
   	padding-bottom: 40px;
   	background-color: #fff;
 }
+
+#left-control {
+	opacity: 0;
+}
+
+#right-control {
+	opacity: 0;
+}

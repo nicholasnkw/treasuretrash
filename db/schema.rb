@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161007083427) do
+ActiveRecord::Schema.define(version: 20161010071512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20161007083427) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.string   "braintree_payment_id"
+    t.string   "status"
+    t.string   "fourdigit"
+    t.integer  "user_id"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "payments", ["user_id"], name: "index_payments_on_user_id", using: :btree
+
   create_table "postings", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
@@ -34,9 +45,9 @@ ActiveRecord::Schema.define(version: 20161007083427) do
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
-    t.boolean  "availability"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "availability", default: true
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.float    "latitude"
     t.float    "longitude"
     t.json     "avatars"
@@ -83,5 +94,6 @@ ActiveRecord::Schema.define(version: 20161007083427) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "payments", "users"
   add_foreign_key "transactions", "postings"
 end

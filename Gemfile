@@ -45,6 +45,8 @@ gem 'omniauth-facebook'
 
 #randomly generated default pic
 gem 'ruby_identicon'
+
+gem 'braintree', '~> 2.61', '>= 2.61.1'
  
 
 # Use ActiveModel has_secure_password

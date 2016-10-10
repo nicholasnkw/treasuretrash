@@ -42,4 +42,15 @@
 	    	<td><%=@user.email%></td>
 	   	</tr>
 	</table>
+
+	<strong>Payment Status:</strong>
+      <% if @reservation.payments.where(status: :authorized).count == 0%>
+      <span class="btn btn-danger"> NOT PAID </span>
+
+       <%= link_to 'Pay Now' , new_payment_path + "?id=" + reservation.id.to_s, class: "btn btn-warning"  %>
+      <% else %>
+      <span class="btn btn-success">PAID</span>
+      <% end %>
+
+      
 </div>
