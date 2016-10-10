@@ -11,7 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20161010072534) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,9 +47,9 @@ ActiveRecord::Schema.define(version: 20161010072534) do
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
-    t.boolean  "availability"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "availability", default: true
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.float    "latitude"
     t.float    "longitude"
     t.json     "avatars"
@@ -90,6 +92,7 @@ ActiveRecord::Schema.define(version: 20161010072534) do
     t.string   "identicon"
     t.string   "facebook_image"
     t.string   "account_type",           default: "free"
+    t.integer  "credit",                 default: 100
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

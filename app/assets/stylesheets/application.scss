@@ -12,7 +12,12 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-social
+ *= require font-awesome
+
  */
+
+
 
 html {
   margin: 0;
@@ -24,6 +29,7 @@ body {
   padding: 0px;
 }
 
+/*etc*/
 
 .alert{
   padding: 15px;
@@ -32,7 +38,28 @@ body {
   border-radius: 4px;
   position: relative;
   top: 34px;
+  display: inline-block;
+  color: red;
+ /* background-color: #2d2d30;*/
 }
+
+
+.k{
+  background-color: transparent;
+  color: #333 !important;
+  text-align: left;
+}
+
+.head-pad{
+  padding-bottom: 50px;
+}
+
+/*.hoverless a:hover {
+      color: transparent;
+      background-color: transparent;
+  }*/
+
+
 /*navbar*/
 
 /*.navbar {
@@ -103,7 +130,7 @@ body {
       padding: 80px 120px;
   }
   .person {
-      border: 10px solid transparent;
+      border: 1px solid transparent;
       margin-bottom: 25px;
       width: 80%;
       height: 80%;

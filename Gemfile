@@ -48,6 +48,10 @@ gem 'ruby_identicon'
 
 gem 'braintree', '~> 2.66.0'
  
+# bootstrap social plugin
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
