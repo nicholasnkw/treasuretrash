@@ -1,15 +1,37 @@
 <!-- postings.html.erb -->
-<h1>My Posting</h1>
 
-<p>
-	<ol>
-		<% current_user.postings.each do |posting| %>
-		<li>
-			<a href="/postings/<%=posting.id%>">
-				Posting ID: <%= posting.id %> | 
-				Posting Title: <%= posting.title %>
-			</a>
-		</li>
-		<% end %> 
-	</ol>
-</p>
+<div class="row text-center head-pad">
+		<h1>My Posting</h1>
+</div>
+
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+         <div class="panel-heading map" id="show">
+
+					<% current_user.postings.each do |posting| %>
+						<div class="media">
+							<a  href="/postings/<%=posting.id%>">
+
+							<div class="media-left">
+								<%= image_tag (posting.avatars.first.medium.url)%>
+							</div>
+
+							<div class="media-body">
+								<h3 class="k"><strong><%= posting.title %></strong></h3>
+								Posting ID: <%= posting.id %><br>
+								<%= posting.description %>
+							</div>
+
+							</a>
+						</div> <!-- close media -->
+					<% end %>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
