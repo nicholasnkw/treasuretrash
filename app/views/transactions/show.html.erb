@@ -61,12 +61,20 @@
 
 <%# form_for @transaction, url: posting_transaction_path(@transaction.posting, @transaction), html: {method: "patch"} do |f| %>
 <%# button_to "I've Got It!",  controller: "transactions", method: "patch", action: "update", success: true %>
+<% if  @transaction.status != false %>
 <%= form_for @transaction, url: {controller: :transactions, action: :update} do |f| %>
-  <%= f.hidden_field :status, :value => true %>
-  <%= f.hidden_field :success, :value => false %>
-  <%= f.submit %>
+  <%= f.hidden_field :status, :value => false %>
+  <%= f.hidden_field :success, :value => true %>
+  <%= f.submit "Item Exchanged" %>
+<% end %>
 <% end %>
 <%# end %>
+
+<% if current_user.id == @transaction.user.id %>
+  <%= link_to "Cancel Transaction", posting_transaction_path, method: :delete, data: { confirm: 'Are you sure?'} %>
+<% elsif current_user.id == @transaction.posting.user.id %>
+  <% @transaction.posting.availability = true  %>
+<% end %>
 
 </div>
 
