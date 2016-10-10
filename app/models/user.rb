@@ -36,4 +36,15 @@ class User < ActiveRecord::Base
 	    end
 	end
 
+  def add_credit
+    self.credit += 1
+    self.save
+  end
+
+  def minus_credit
+    self.credit -= 1
+    self.save
+  end
+
+
 end

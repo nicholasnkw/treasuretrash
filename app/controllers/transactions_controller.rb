@@ -33,6 +33,8 @@ class TransactionsController < ApplicationController
   def update
     @transaction = Transaction.find(params[:id])
     @transaction.update(transaction_params)
+    @transaction.user.minus_credit
+    @transaction.posting.user.add_credit
     render 'show'
   end
 
