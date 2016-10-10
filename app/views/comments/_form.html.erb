@@ -1,9 +1,6 @@
 <%= form_for([@posting, @comment]) do |f| %>
-  <p>
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
+  <div class="form-group">
+    <%= f.text_area :comment, class: "form-control" %>
+  </div>
+    <%= f.submit "Comment", class: "btn btn-default" %>
 <% end %>

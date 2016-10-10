@@ -1,8 +1,19 @@
+
+<div class="col-md-8 col-md-offset-2">
+  <div class="panel panel-default"> 
+
+
+<div class="panel-heading post_image text-center">
+
 <h2>Transaction Show Page</h2>
 
 <% @transaction.posting.avatars.each do |x| %>
   <%= image_tag (x.medium.url) %>
 <%end%>
+</div>
+
+<div class="panel-body">
+
 
 <p>
   <strong>Title:</strong>
@@ -46,6 +57,8 @@
 </p>
 
 
+
+
 <%# form_for @transaction, url: posting_transaction_path(@transaction.posting, @transaction), html: {method: "patch"} do |f| %>
 <%# button_to "I've Got It!",  controller: "transactions", method: "patch", action: "update", success: true %>
 <%= form_for @transaction, url: {controller: :transactions, action: :update} do |f| %>
@@ -54,3 +67,13 @@
   <%= f.submit %>
 <% end %>
 <%# end %>
+
+</div>
+
+<div class="col-md-6">
+       <%= link_to 'Back', postings_path, class: "btn btn-default" %>
+      </div>
+
+</div>
+</div>
+
