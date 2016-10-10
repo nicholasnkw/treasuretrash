@@ -33,6 +33,9 @@ body {
   border-radius: 4px;
   position: relative;
   top: 34px;
+  display: inline-block;
+  color: red;
+ /* background-color: #2d2d30;*/
 }
 
 
@@ -46,11 +49,10 @@ body {
   padding-bottom: 50px;
 }
 
-.hoverless a:hover {
+/*.hoverless a:hover {
       color: transparent;
       background-color: transparent;
-  }
-
+  }*/
 
 
 /*navbar*/
