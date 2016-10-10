@@ -22,4 +22,7 @@ Rails.application.routes.draw do
       get "transactions", to: "users#transactions"
     end
   end
+
+  resources :payments, only: [:new, :create]
+
 end

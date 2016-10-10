@@ -1,5 +1,4 @@
 class PaymentsController < ApplicationController
-  before_action :require_login
 
   def new
   	@client_token = Braintree::ClientToken.generate
