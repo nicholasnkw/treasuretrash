@@ -1,57 +1,79 @@
+
 <div class="col-md-8 col-md-offset-2">
   <div class="panel panel-default"> 
-  
 
-      <div class="panel-heading post_image text-center">
-        <h2>Transaction Show Page</h2>
 
-        <% @transaction.posting.avatars.each do |x| %>
-          <%= image_tag (x.medium.url) %>
-        <%end%>
-      </div>
+<div class="panel-heading post_image text-center">
 
-      <div class="panel-body">
-      <p>
-        <strong>Title:</strong>
-        <%= @transaction.posting.title %>
-      </p>
+<h2>Transaction Show Page</h2>
 
-      <p>
-        <strong>Description:</strong>
-        <%= @transaction.posting.description %>
-      </p>
+<% @transaction.posting.avatars.each do |x| %>
+  <%= image_tag (x.medium.url) %>
+<%end%>
+</div>
 
-      <p>
-        <strong>Condition:</strong>
-        <%= @transaction.posting.condition %>
-      </p>
+<div class="panel-body">
 
-      <p>
-        <strong>Category:</strong>
-        <%= @transaction.posting.category %>
-      </p>
 
-      <p>
-        <strong>Location:</strong>
-        <%= @transaction.posting.full_address %>
-      </p>
+<p>
+  <strong>Title:</strong>
+  <%= @transaction.posting.title %>
+</p>
 
-      <p>
-      	<strong>Giver's details</strong>
-        <br>
-      	Name: <%= @transaction.posting.user.first_name + @transaction.posting.user.last_name %>
-        <br>
-      	Email: <%= @transaction.posting.user.email %>
-        <br>
-      	Phone:<%= @transaction.posting.user.phone_no %>
-      </p>
+<p>
+  <strong>Description:</strong>
+  <%= @transaction.posting.description %>
+</p>
 
-      <div class="col-md-6">
+<p>
+  <strong>Condition:</strong>
+  <%= @transaction.posting.condition %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @transaction.posting.category %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @transaction.posting.full_address %>
+</p>
+
+<p>
+	<strong>Giver's details</strong>
+	<%= @transaction.posting.user.first_name %>, 
+	<%= @transaction.posting.user.last_name %>,
+	<%= @transaction.posting.user.email %>,
+	<%= @transaction.posting.user.phone_no %>
+</p>
+
+<p>
+  <strong>Taker's details</strong>
+  <%= @transaction.user.first_name %>,
+  <%= @transaction.user.last_name %>,
+  <%= @transaction.user.email %>,
+  <%= @transaction.user.phone_no %>
+</p>
+
+
+
+
+<%# form_for @transaction, url: posting_transaction_path(@transaction.posting, @transaction), html: {method: "patch"} do |f| %>
+<%# button_to "I've Got It!",  controller: "transactions", method: "patch", action: "update", success: true %>
+<%= form_for @transaction, url: {controller: :transactions, action: :update} do |f| %>
+  <%= f.hidden_field :status, :value => true %>
+  <%= f.hidden_field :success, :value => false %>
+  <%= f.submit %>
+<% end %>
+<%# end %>
+
+</div>
+
+<div class="col-md-6">
        <%= link_to 'Back', postings_path, class: "btn btn-default" %>
       </div>
 
-      </div>
-
-    
-  </div>
 </div>
+</div>
+

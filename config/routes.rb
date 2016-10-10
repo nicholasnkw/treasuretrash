@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update, :edit]
   resources :users do 
     member do 
+      get "postings", to: "users#postings"
       get "transactions", to: "users#transactions"
     end
   end

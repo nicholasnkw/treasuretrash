@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
   
-    
-
   def show
   	@user = User.find(params[:id])
     # @base64_identicon
@@ -22,9 +20,10 @@ class UsersController < ApplicationController
   end
 
   def transactions
-    # @transaction = Transactions.find_by(user_id: params[:id])
   end
 
+  def postings
+  end
 
   private
   def user_params

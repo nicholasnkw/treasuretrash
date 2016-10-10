@@ -54,10 +54,6 @@
             </div>
 
 
-
-
-
-
             <div class="panel-body">
 
             <p>
@@ -89,9 +85,16 @@
               <strong>Location:</strong>
               <%= @posting.full_address %>
             </p>
+
+            <p>
+            <strong>Availability:</strong>
+            <%= @posting.available? %>
+            </p>
             </div>
 
-              <div class="map">
+
+
+                <div class="map">
               <div style='width: 800px;'>
                 <div id="map" style='width: 968px; height: 400px;'></div>
               </div>
@@ -142,17 +145,7 @@
                 <%= render 'comments/form' %>
             <% end %>
 
-            <br>
-            <%= link_to 'Edit', edit_posting_path(@posting) %> |
-            <%= link_to 'Back', postings_path %> |
-
-            <% if current_user.id != @posting.user.id %>
-              <%= form_for(@transaction, url: posting_transactions_path(@posting.id), html: {method: "post"}) do |f| %>
-                <%= f.hidden_field :status, :value => true %>
-                <%= f.hidden_field :success, :value => false %>
-                <%= f.submit "Get!", class: "btn btn-primary" %>     
-              <% end %>
-            <% end %>
+            
           </div>
 
         </div>
@@ -163,8 +156,3 @@
 
 
 
-</div> <!-- close container -->
-
-<!-- http://www.clker.com/cliparts/c/I/g/P/d/h/google-maps-pin-blue-md.png -->
-
-<!-- addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png -->

@@ -1,0 +1,16 @@
+<h1>My Transactions</h1>
+
+
+<p>
+	<ol>
+		<% current_user.transactions.each do |transaction| %>
+			<li>
+				<a href="/postings/<%=transaction.posting.id%>/transactions/<%=transaction.id%>">
+					Transaction ID: <%= transaction.id %> | 
+					Posting Title: <%= transaction.posting.title %>
+				</a>
+			</li>
+		<% end %> 
+
+	</ol>
+<p>

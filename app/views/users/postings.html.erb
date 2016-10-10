@@ -1,0 +1,15 @@
+<!-- postings.html.erb -->
+<h1>My Posting</h1>
+
+<p>
+	<ol>
+		<% current_user.postings.each do |posting| %>
+		<li>
+			<a href="/postings/<%=posting.id%>">
+				Posting ID: <%= posting.id %> | 
+				Posting Title: <%= posting.title %>
+			</a>
+		</li>
+		<% end %> 
+	</ol>
+</p>

@@ -34,9 +34,9 @@ ActiveRecord::Schema.define(version: 20161007083427) do
     t.string   "city"
     t.string   "state"
     t.string   "zipcode"
-    t.boolean  "availability", default: true
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "availability"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.float    "latitude"
     t.float    "longitude"
     t.json     "avatars"
