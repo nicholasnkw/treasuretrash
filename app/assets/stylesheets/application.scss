@@ -24,6 +24,7 @@ body {
   padding: 0px;
 }
 
+/*etc*/
 
 .alert{
   padding: 15px;
@@ -33,6 +34,25 @@ body {
   position: relative;
   top: 34px;
 }
+
+
+.k{
+  background-color: transparent;
+  color: #333 !important;
+  text-align: left;
+}
+
+.head-pad{
+  padding-bottom: 50px;
+}
+
+.hoverless a:hover {
+      color: transparent;
+      background-color: transparent;
+  }
+
+
+
 /*navbar*/
 
 /*.navbar {
@@ -103,7 +123,7 @@ body {
       padding: 80px 120px;
   }
   .person {
-      border: 10px solid transparent;
+      border: 1px solid transparent;
       margin-bottom: 25px;
       width: 80%;
       height: 80%;
