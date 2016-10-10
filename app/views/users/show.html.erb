@@ -41,5 +41,19 @@
 	    	<th>Email</th>
 	    	<td><%=@user.email%></td>
 	   	</tr>
+	   	<tr>
+	   		<th>Account Type</th>
+	   		<td><%=@user.account_type.capitalize%>
+	   			<% if @user.payments.where(status: :authorized).count == 0%>
+			    	<%= link_to 'Upgrade to Premium' , new_payment_path + "?id=" + @user.id.to_s, class: "btn btn-warning"  %>
+			    <% else %>
+			    	<span class="btn btn-success">Paid</span>
+			    <% end %>
+	   		</td>
+	   	</tr>
+	 
 	</table>
+
+
+
 </div>

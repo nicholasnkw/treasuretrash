@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   	has_many :comments, dependent: :destroy
   	has_many :postings, dependent: :destroy
   	has_many :transactions, dependent: :destroy
+    has_many :payments
 
     mount_uploader :avatar, AvatarUploader
 

@@ -45,6 +45,8 @@ gem 'omniauth-facebook'
 
 #randomly generated default pic
 gem 'ruby_identicon'
+
+gem 'braintree', '~> 2.66.0'
  
 # bootstrap social plugin
 gem 'bootstrap-social-rails'
