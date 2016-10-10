@@ -18,15 +18,17 @@
 
   
   <div class="actions">
-    <%= f.submit "Pay MYR100", disable: true, class: "btn btn-danger"%>
+    <%= f.submit "Pay MYR100", disabled: true , id: "pay-button", class: "btn btn-danger"%>
   </div>
 <% end %>
 
 
 <script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
 <script>
- braintree.setup("<%=@client_token%>", "dropin", {
+  braintree.setup("<%=@client_token%>", "dropin", {
     container: "dropin"
- });
+  });
+
+ setTimeout(function(){  $('#pay-button').prop("disabled", false)}, 2000);
 
 </script>
