@@ -3,3 +3,18 @@ body {
   	padding-bottom: 40px;
   	background-color: #fff;
 }
+
+#left-control {
+	opacity: 0.2;
+}
+
+#right-control {
+	opacity: 0.2;
+}
+
+#quote {
+	font-size: 2em;
+	margin: 2em 0;
+    line-height: 1.5;
+}
+

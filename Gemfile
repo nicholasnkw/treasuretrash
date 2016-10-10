@@ -46,6 +46,10 @@ gem 'omniauth-facebook'
 #randomly generated default pic
 gem 'ruby_identicon'
  
+# bootstrap social plugin
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
