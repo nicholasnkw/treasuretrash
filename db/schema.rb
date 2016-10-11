@@ -90,8 +90,8 @@ ActiveRecord::Schema.define(version: 20161011012312) do
     t.string   "avatar"
     t.string   "identicon"
     t.string   "facebook_image"
-    t.string   "account_type",           default: "free"
     t.integer  "credit",                 default: 100
+    t.string   "account_type",           default: "free"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
