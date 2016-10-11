@@ -14,6 +14,15 @@ class TransactionsController < ApplicationController
       a = current_user.transactions.new(posting_id: @posting.id, status: true)
       a.save
       @posting.update(availability: false)
+            #transaction gets created here.
+
+      # @transaction = Transaction.find(params[:id]) #Needed to find the transaction.exp for credit update
+      # @transaction.update(transaction_params) #exp for credit update
+      # @transaction.user.minus_credit #exp for credit update
+      # @transaction.posting.user.add_credit #exp for credit update
+
+
+
       redirect_to posting_transaction_path(@posting.id, a.id)
     end
 
@@ -32,16 +41,33 @@ class TransactionsController < ApplicationController
   end
 
   def update
-    @transaction = Transaction.find(params[:id])
+    @transaction = Transaction.find(params[:id]) 
     @transaction.update(transaction_params)
-    @transaction.user.minus_credit
-    @transaction.posting.user.add_credit
+    if @transaction.success
+      @transaction.user.minus_credit
+      @transaction.posting.user.add_credit
+    end
+    flash[:notice] = 'Transaction was successfully completed. You have #{@transaction.user.credit}credits left' 
     render 'show'
   end
+
+
+# if Transaction.find_by(posting_id: @posting.id, user_id: current_user.id)
+#       flash[:notice] = "Transaction has already been made"
+#       redirect_to posting_transaction_path(@posting.transaction.id)
+#     else
+#       a = current_user.transactions.new(posting_id: @posting.id, status: true)
+#       a.save
+#       @posting.update(availability: false)
+
 
  def destroy
     @posting = Posting.find(params[:posting_id])
     @transaction = Transaction.find(params[:id])
+
+    @transaction.user.minus_credit
+    @transaction.posting.user.add_credit
+
     @transaction.destroy
     @posting.update(availability: true)
     

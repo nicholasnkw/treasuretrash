@@ -42,6 +42,10 @@
 	    	<td><%=@user.email%></td>
 	   	</tr>
 	   	<tr>
+	    	<th>Credit Standing</th>
+	    	<td><%=@user.credit%></td>
+	   	</tr>
+
 	   		<th>Account Type</th>
 	   		<td><%=@user.account_type.capitalize%>
 	   			<% if @user.payments.where(status: :authorized).count == 0%>

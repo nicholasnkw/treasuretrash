@@ -13,18 +13,40 @@
 						<div class="media">
 							<a href="/postings/<%=transaction.posting.id%>/transactions/<%=transaction.id%>">
 
-							<div class="media-left">
-								<%= image_tag (transaction.posting.avatars.first.medium.url)%>
-							</div>
+							
+								<div class="media-left">
+									<%= image_tag (transaction.posting.avatars.first.medium.url) %>
+								</div>
+							
 
 							<div class="media-body">
 								<h3 class="k"><strong>Posting Title: <%= transaction.posting.title %></strong></h3>
 								Transaction ID: <%= transaction.id %><br>
 								<%= transaction.posting.description %>
 							</div>
-					
 							</a>
+
+							
+							 <% if transaction.success == false %>
+				        <%= form_for(transaction, url: posting_transaction_path(transaction.posting.id,  transaction.id), html: {method: "patch"}) do |f| %>
+				          <%= f.hidden_field :success, :value => true %>
+				          <%= f.hidden_field :status, :value => false %>
+				          <%= f.submit "Confirm transaction." %>
+				        <% end %>
+			        <% end %>
+
+
+                
+							
+
 					<% end %>
+
+
+              	
+			        	
+
+
+
 						</div> <!-- close media -->
 
 				</div> <!-- close heading -->
