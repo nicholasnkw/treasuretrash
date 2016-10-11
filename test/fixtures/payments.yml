@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  braintree_payment_id: MyString
+  status: MyString
+  fourdigit: MyString
+  user_id: 
+
+two:
+  braintree_payment_id: MyString
+  status: MyString
+  fourdigit: MyString
+  user_id: 

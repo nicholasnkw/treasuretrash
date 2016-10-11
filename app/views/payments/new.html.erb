@@ -1,0 +1,34 @@
+<h2>Payment Page</h2>
+
+
+<%= form_for @payment do |f| %>
+  First Name: <%= @user.first_name %> <br>
+  Last Name: <%= @user.last_name %> <br>
+  Account Type: <%= @user.account_type %> <br>
+  Price: RM 100
+
+
+  <div class="field">
+    <%= f.hidden_field :price, value: "100"%>
+  </div>
+
+  <div class="field">
+    <div id="dropin"></div>
+  </div>
+
+  
+  <div class="actions">
+    <%= f.submit "Pay MYR100", disabled: true , id: "pay-button", class: "btn btn-danger"%>
+  </div>
+<% end %>
+
+
+<script src="https://js.braintreegateway.com/js/braintree-2.22.2.min.js"></script>
+<script>
+  braintree.setup("<%=@client_token%>", "dropin", {
+    container: "dropin"
+  });
+
+ setTimeout(function(){  $('#pay-button').prop("disabled", false)}, 2000);
+
+</script>

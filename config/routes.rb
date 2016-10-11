@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'payments/new'
+
+  get 'payments/create'
+
   root 'home#index'
   get '/search' => 'home#search'
   resources :postings do
@@ -19,4 +23,7 @@ Rails.application.routes.draw do
         #this route responds to the path defined in form
     end
   end
+
+  resources :payments, only: [:new, :create]
+
 end
