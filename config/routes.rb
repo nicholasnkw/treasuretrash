@@ -16,6 +16,7 @@ Rails.application.routes.draw do
     member do 
       get "postings", to: "users#postings"
       get "transactions", to: "users#transactions"
+        #this route responds to the path defined in form
     end
   end
 end

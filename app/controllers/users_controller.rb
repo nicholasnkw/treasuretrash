@@ -20,6 +20,10 @@ class UsersController < ApplicationController
   end
 
   def transactions
+
+    @user = User.find(params[:id])
+    
+    
   end
 
   def postings

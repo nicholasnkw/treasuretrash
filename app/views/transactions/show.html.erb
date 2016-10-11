@@ -5,9 +5,10 @@
       <div class="panel-heading post_image text-center">
         <h2>Transaction Show Page</h2>
 
+        
         <% @transaction.posting.avatars.each do |x| %>
-          <%= image_tag (x.medium.url) %>
-        <%end%>
+          <%= image_tag (x.medium.url)  %>
+          <% end %>
       </div>
 
       <div class="panel-body">
@@ -36,6 +37,22 @@
           <%= @transaction.posting.full_address %>
         </p>
 
+
+        <p>
+          <strong>Item Availability</strong>
+          <%= @transaction.posting.availability %>
+        </p>
+
+        <p>
+          <strong>Transaction Status:</strong>
+          <%= @transaction.status %>
+        </p>
+
+        <p>
+          <strong>Item picked up?</strong>
+          <%= @transaction.success %>
+        </p>
+
         <p>
         	<strong>Giver's details</strong>
         	<%= @transaction.posting.user.first_name %>, 
@@ -57,16 +74,16 @@
 
         <%# form_for @transaction, url: posting_transaction_path(@transaction.posting, @transaction), html: {method: "patch"} do |f| %>
         <%# button_to "I've Got It!",  controller: "transactions", method: "patch", action: "update", success: true %>
-        <% if  @transaction.status != false %>
-        <%= form_for @transaction, url: {controller: :transactions, action: :update} do |f| %>
-          <%= f.hidden_field :status, :value => false %>
+        <% if  @transaction.status %>
+        <%= form_for @transaction, url: {controller: :transactions, action: :update, data: { confirm: 'Did you receive your item? Click to Confirm'}} do |f| %>
           <%= f.hidden_field :success, :value => true %>
-          <%= f.submit "Item Exchanged" %>
+          <%= f.hidden_field :status, :value => false %>
+          <%= f.submit "I have taken this item" %>
         <% end %>
         <% end %>
         <%# end %>
 
-        <% if current_user.id == @transaction.user.id %>
+        <% if current_user.id == @transaction.user.id && @transaction.status %>
           <%= link_to "Cancel Transaction", posting_transaction_path, method: :delete, data: { confirm: 'Are you sure?'} %>
         <% end %>
 
