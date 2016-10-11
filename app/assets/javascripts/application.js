@@ -16,4 +16,4 @@
 //= require_tree .
 //= require underscore
 //= require gmaps/google
-@import bootstrap-social
+//= @import bootstrap-social
