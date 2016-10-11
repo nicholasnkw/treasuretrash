@@ -1,7 +1,7 @@
 <!-- postings.html.erb -->
 
 <div class="row text-center head-pad">
-		<h1>My Posting</h1>
+		<h1>Things I've Posted</h1>
 </div>
 
 	<div class="row">
@@ -11,19 +11,26 @@
 
 					<% current_user.postings.each do |posting| %>
 						<div class="media">
-							<a  href="/postings/<%=posting.id%>">
+							
 
-							<div class="media-left">
-								<%= image_tag (posting.avatars.first.medium.url)%>
-							</div>
+								<div class="media-left">
+									<a  href="/postings/<%=posting.id%>">
+										<%= image_tag (posting.avatars.first.profile.url) unless posting.avatars.first.nil? %>
+									</a>
+								</div>
+							
 
 							<div class="media-body">
 								<h3 class="k"><strong><%= posting.title %></strong></h3>
-								Posting ID: <%= posting.id %><br>
-								<%= posting.description %>
+								<p><strong>Posting ID:</strong><br> <%= posting.id %></p>
+								<p><strong>Description</strong><i><br>	<%= posting.description %></i></p>
+								<p><strong>Address</strong><i><br>	<%= posting.full_address %></i></p>
+								<p><strong>Category</strong><i><br><%= posting.category %></i></p>
+								<p><strong>Condition</strong><br><i><%= posting.condition %></i></p>
+
 							</div>
 
-							</a>
+							
 						</div> <!-- close media -->
 					<% end %>
 
