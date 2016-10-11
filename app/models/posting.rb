@@ -6,6 +6,7 @@ class Posting < ActiveRecord::Base
 	validates :description, presence: true
 	validates :condition, presence: true
 	validates :category, presence: true
+	validates :avatars, presence: true 
 	validates :city, presence: true
 	validates :state, presence: true
 	validates :zipcode, zipcode: true
@@ -23,7 +24,8 @@ class Posting < ActiveRecord::Base
 	pg_search_scope :search_by_others, :against => [:title, :description, :condition]
 
 	def full_address
-		[address1, address2, city, state, zipcode].join(', ')
+		[address1, city, state, zipcode].join(', ')
+		# [address1, address2, city, state, zipcode].join(', ')
 	end
 
 	def full_address_changed?
