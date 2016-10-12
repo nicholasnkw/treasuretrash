@@ -47,7 +47,7 @@ class TransactionsController < ApplicationController
       @transaction.user.minus_credit
       @transaction.posting.user.add_credit
     end
-    flash[:notice] = 'Transaction was successfully completed. You have #{@transaction.user.credit}credits left' 
+    flash[:notice] = "Transaction was successfully completed. You have #{@transaction.user.credit}credits left"
     render 'show'
   end
 

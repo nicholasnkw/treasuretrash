@@ -46,7 +46,7 @@ gem 'omniauth-facebook'
 #randomly generated default pic
 gem 'ruby_identicon'
 
-gem 'braintree', '~> 2.66.0'
+gem 'braintree'
  
 # bootstrap social plugin
 gem 'bootstrap-social-rails'
@@ -73,5 +73,10 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do 
+	gem 'rails_12factor' 
+	gem 'puma'
 end
 
