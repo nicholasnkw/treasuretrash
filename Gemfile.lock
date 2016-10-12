@@ -214,8 +214,6 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-social-rails
-
-  braintree (~> 2.66.0)
   braintree
   byebug
   carrierwave!
