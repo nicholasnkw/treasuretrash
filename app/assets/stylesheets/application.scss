@@ -148,7 +148,7 @@ body {
   display: flex;  /*//enable flexbox*/
   align-items: center; /*//this center content vertically*/
   justify-content: center;  /*//this centers content horizontally*/
-  margin-top: 16px;
+  /*margin-top: 16px;*/
 }
 
 /*posting#show*/
@@ -347,8 +347,9 @@ fieldset[disabled] .btn-sample.active {
 }
 
 .posting-styling {
-  height: 200px;
+  height: 134px;
   overflow: scroll;
 }
-
-
+#brand {
+  font-family: 'Love Ya Like A Sister', cursive;
+}
