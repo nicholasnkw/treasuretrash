@@ -17,3 +17,18 @@ body {
 	margin: 2em 0;
     line-height: 1.5;
 }
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.1); }
+
+.grow-posting { transition: all .2s ease-in-out; }
+.grow-posting:hover { 
+	transform: scale(1.05); 
+	z-index: 99999;
+  	box-shadow: 0 5px 15px rgba(91, 94, 92, 1) !important;
+}
+
+.row .col-md-12 {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
