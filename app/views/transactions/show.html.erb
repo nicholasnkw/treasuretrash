@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default"> 
 
-      <div class="panel-heading post_image text-center">
+      <div class="panel-heading-title post_image text-center">
         <h2>Transaction Details</h2>
 
         <% @transaction.posting.avatars.each do |x| %>
@@ -37,20 +37,17 @@
         </p>
 
 
-        <p>
+        <!-- <p>
           <strong>Item Availability</strong>
           <%= @transaction.posting.availability %>
-        </p>
+        </p> -->
 
-        <p>
+        <!-- <p>
           <strong>Transaction Status:</strong>
           <%= @transaction.status %>
-        </p>
+        </p> -->
 
-        <p>
-          <strong>Item picked up?</strong>
-          <%= @transaction.success %>
-        </p>
+       
 
         <p>
         	<strong>Giver's details</strong>
@@ -68,25 +65,34 @@
           <%= @transaction.user.phone_no %>
         </p>
 
+         <p>
+          <strong>Item picked up?</strong>
+          <% if @transaction.success %>
+            Opps, too late...
+          <%else%>
+            Not yet!
+            <%end%>
+        </p>
+        <br>
 
 
 
         <%# form_for @transaction, url: posting_transaction_path(@transaction.posting, @transaction), html: {method: "patch"} do |f| %>
         <%# button_to "I've Got It!",  controller: "transactions", method: "patch", action: "update", success: true %>
         <% if  @transaction.status %>
-        <%= form_for @transaction, url: {controller: :transactions, action: :update, data: { confirm: 'Did you receive your item? Click to Confirm'}} do |f| %>
-          <%= f.hidden_field :success, :value => true %>
-          <%= f.hidden_field :status, :value => false %>
-          <%= f.submit "I have taken this item" %>
-        <% end %>
+          <%= form_for @transaction, url: {controller: :transactions, action: :update, data: { confirm: 'Did you receive your item? Click to Confirm'}} do |f| %>
+            <%= f.hidden_field :success, :value => true %>
+            <%= f.hidden_field :status, :value => false %>
+            <%= f.submit "I have taken this item", class: "btn btn-block btn-primary"  %><br>
+          <% end %>
         <% end %>
         <%# end %>
 
         <% if current_user.id == @transaction.user.id && @transaction.status %>
           <%= link_to "Cancel Transaction", posting_transaction_path, method: :delete, data: { confirm: 'Are you sure?'} %>
-        <% end %>
+        <% end %> |
 
-        <%= link_to 'Back', postings_path, class: "btn btn-default pull-right" %>
+        <%= link_to 'Back', postings_path %>
       </div> <!-- close panel body -->
 
     </div>

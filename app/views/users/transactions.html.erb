@@ -17,24 +17,23 @@
 									<%= image_tag (transaction.posting.avatars.first.medium.url) %>
 								</div>
 
-							<div class="media-body">
-								<h3 class="k"><strong>Posting Title: <%= transaction.posting.title %></strong></h3>
-								Transaction ID: <%= transaction.id %><br>
-								<%= transaction.posting.description %>
-							</div>
+								<div class="media-body">
+									<h3 class="k"><strong>Posting Title: <%= transaction.posting.title %></strong></h3>
+									Transaction ID: <%= transaction.id %><br>
+									<%= transaction.posting.description %>
+									<% if transaction.success == false %>
+					        			<%= form_for(transaction, url: posting_transaction_path(transaction.posting.id,  transaction.id), html: {method: "patch"}) do |f| %>
+								        	<%= f.hidden_field :success, :value => true %>
+								        	<%= f.hidden_field :status, :value => false %>
+								        	<%= f.submit "Confirm transaction.", class: "btn btn-xs btn-primary" %>
+					        			<% end %>
+				        			<% end %>
+								</div>
 							</a>
-
-							 <% if transaction.success == false %>
-				        <%= form_for(transaction, url: posting_transaction_path(transaction.posting.id,  transaction.id), html: {method: "patch"}) do |f| %>
-				          <%= f.hidden_field :success, :value => true %>
-				          <%= f.hidden_field :status, :value => false %>
-				          <%= f.submit "Confirm transaction." %>
-				        <% end %>
-			        <% end %>
-			       </div> <!-- close media -->
-			      </div> <!-- close heading -->
+			       		</div> <!-- close media -->
+			     	</div> <!-- close heading -->
 			    </div> <!-- close panel -->
-				<% end %>
+			<% end %>
 	
 		</div> <!-- close column -->
 	</div> <!-- close row -->
