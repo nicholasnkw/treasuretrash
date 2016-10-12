@@ -16,3 +16,4 @@
 //= require underscore
 //= require gmaps/google
 //= @import bootstrap-social
+//= require markerclusterer
