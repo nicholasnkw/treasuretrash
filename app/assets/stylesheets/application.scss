@@ -20,7 +20,7 @@
 
 
 html {
-  margin: 0;
+  margin-top: 55px;
   padding: 0;
 }
 
@@ -36,13 +36,12 @@ body {
   margin-bottom:  20px;
   border: 1px solid transparent;
   border-radius: 4px;
-  position: relative;
-  top: 34px;
+  position: absolute;
+  top: 46px;
   display: inline-block;
   color: red;
  /* background-color: #2d2d30;*/
 }
-
 
 .k{
   background-color: transparent;
@@ -52,6 +51,14 @@ body {
 
 .head-pad{
   padding-bottom: 50px;
+}
+
+.push{
+  padding-top: 50px;
+}
+
+.upgrade{
+      background-color: #F44336;
 }
 
 /*.hoverless a:hover {
@@ -64,6 +71,31 @@ body {
 }
 
 
+/*posting#index*/
+
+#pins {
+  margin: 0 auto;
+  width: 100%;
+  .box {
+      margin: 10px;
+      width: 390px;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+      border-radius: 7px;
+      text-align: center;
+  }
+}
+
+#row {
+  margin-right: -15px;
+  margin-left: 8px;
+}
+
+/*posting#show*/
+
+.m{
+  margin-right: 23px;
+  margin-left: 23px;
+}
 
 /*navbar*/
 
@@ -145,8 +177,8 @@ body {
       border-color: #f1f1f1;
   }
   .carousel-inner img {
-      -webkit-filter: grayscale(90%);
-      filter: grayscale(90%); /* make all photos black and white */
+      /*-webkit-filter: grayscale(90%);*/
+      /*filter: grayscale(90%);*/ /* make all photos black and white */
       width: 100%; /* Set width to 100% */
       margin: auto;
   }

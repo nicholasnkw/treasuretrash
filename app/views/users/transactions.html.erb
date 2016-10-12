@@ -6,18 +6,16 @@
 
  <div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<div class="panel panel-default">
-         <div class="panel-heading map" id="show">
-
-					<% current_user.transactions.each do |transaction| %>
+	
+			<% current_user.transactions.each do |transaction| %>
+				<div class="panel panel-default">
+					<div class="panel-heading map" id="show">
 						<div class="media">
 							<a href="/postings/<%=transaction.posting.id%>/transactions/<%=transaction.id%>">
 
-							
 								<div class="media-left">
 									<%= image_tag (transaction.posting.avatars.first.medium.url) %>
 								</div>
-							
 
 							<div class="media-body">
 								<h3 class="k"><strong>Posting Title: <%= transaction.posting.title %></strong></h3>
@@ -26,7 +24,6 @@
 							</div>
 							</a>
 
-							
 							 <% if transaction.success == false %>
 				        <%= form_for(transaction, url: posting_transaction_path(transaction.posting.id,  transaction.id), html: {method: "patch"}) do |f| %>
 				          <%= f.hidden_field :success, :value => true %>
@@ -34,23 +31,11 @@
 				          <%= f.submit "Confirm transaction." %>
 				        <% end %>
 			        <% end %>
-
-
-                
-							
-
-					<% end %>
-
-
-              	
-			        	
-
-
-
-						</div> <!-- close media -->
-
-				</div> <!-- close heading -->
-			</div> <!-- close panel -->
+			       </div> <!-- close media -->
+			      </div> <!-- close heading -->
+			    </div> <!-- close panel -->
+				<% end %>
+	
 		</div> <!-- close column -->
 	</div> <!-- close row -->
 

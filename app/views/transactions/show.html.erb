@@ -5,7 +5,6 @@
       <div class="panel-heading post_image text-center">
         <h2>Transaction Show Page</h2>
 
-        
         <% @transaction.posting.avatars.each do |x| %>
           <%= image_tag (x.medium.url)  %>
           <% end %>

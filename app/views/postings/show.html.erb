@@ -10,9 +10,6 @@
     <div class="col-md-8 col-md-offset-2">
       <!-- <div class="row row-centered"> -->
         <div class="panel panel-default">
-          
-            
-        
 
             <div class="panel-heading post_image text-center map" id="show">
               <% @posting.avatars.each do |x| %>
@@ -20,7 +17,7 @@
               <%end%>
 
             <p>
-            <div class="row">
+            <div class="row m">
               <!-- <div class="col-md-6"> -->
 
             <div class="btn-group pull-right">
@@ -40,12 +37,12 @@
              <div class="btn-group pull-left">
               <% if current_user.id == @posting.user.id %>
                 <%= link_to 'Edit', edit_posting_path(@posting), class: "btn btn-default" if user_signed_in?%>
+                <%= link_to 'Destroy', posting_path(@posting), class: "btn btn-default", method: :delete, data: { confirm: 'Are you sure?' } %>
               <% end %>
               <%= link_to 'Back', postings_path, class: "btn btn-default" %>
             </div>
 
 
-           
            <!--  </div> -->
             </div>
             </p>
@@ -56,38 +53,38 @@
             <div class="panel-body">
 
             <p>
-              <strong>Owned by:</strong>
-              <%= @posting.user.first_name %>
+              <strong>Posted by:</strong><br>
+              <i><%= @posting.user.first_name %></i>
             </p>
 
             <p>
-              <strong>Title:</strong>
-              <%= @posting.title %>
+              <strong>Title:</strong><br>
+              <i><%= @posting.title %></i>
             </p>
 
             <p>
-              <strong>Description:</strong>
-              <%= @posting.description %>
+              <strong>Description:</strong><br>
+              <i><%= @posting.description %></i>
             </p>
 
             <p>
-              <strong>Condition:</strong>
-              <%= @posting.condition %>
+              <strong>Condition:</strong><br>
+              <i><%= @posting.condition %></i>
             </p>
 
             <p>
-              <strong>Category:</strong>
-              <%= @posting.category %>
+              <strong>Category:</strong><br>
+              <i><%= @posting.category %></i>
             </p>
 
             <p>
-              <strong>Location:</strong>
-              <%= @posting.full_address %>
+              <strong>Location:</strong><br>
+              <i><%= @posting.full_address %></i>
             </p>
 
             <p>
-            <strong>Availability:</strong>
-            <%= @posting.available? %>
+            <strong>Availability:</strong><br>
+            <i><%= @posting.available? %></i>
             </p>
             </div>
 

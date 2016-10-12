@@ -58,11 +58,13 @@
     <%= f.select(:state, ['-','Penang', 'Selangor', 'Johor', 'Melaka', 'Perak','Kedah','Pahang','Terengganu','Kelantan','Perlis','Negeri Sembilan', 'Sabah', 'Sarawak', 'Wilayah Persekutuan'])%>
   </div>
 
+
   <div class="field">
     <%= f.label :zipcode %><br>
     <%= f.text_field :zipcode, class: "form-control" %>
   </div>
   
+  <br>
   <div>
     <%= f.file_field :avatars, multiple: true %>
   </div>
@@ -75,3 +77,4 @@
 <% end %>
 
 </form>
+<br>
