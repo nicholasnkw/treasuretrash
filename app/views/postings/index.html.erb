@@ -36,7 +36,7 @@
         <%# if posting.availability && current_user.id != posting.user_id %>
         <% if posting.availability %>
 
-      <div class="col-md-4"> <!-- has to be inside so that 3 pins appear in a row-->
+      <div class="col-md-4 module"> <!-- has to be inside so that 3 pins appear in a row-->
         <div id="pins">
           <div class="thumbnail">
 
@@ -76,4 +76,8 @@
   </div> <!-- close row -->
 </div> <!-- close container -->
 
-    
+      <script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
+  <script>  
+    window.sr = ScrollReveal({ duration: 2000}, 500);
+    sr.reveal('.module');
+  </script>
