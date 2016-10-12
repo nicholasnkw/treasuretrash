@@ -1,63 +1,62 @@
-<h1>Users#show</h1>
+<div class="container">
+  <div class="col-md-8 col-md-offset-2">
+    <div class="panel panel-default"> 
 
-<%=link_to "Edit", edit_user_registration_path%>
-<div>
+      <div class="panel-heading post_image text-center">
+        <h2><%= @user.first_name%> <%=@user.last_name%></h2><br>
 
-	<div>
-			
-		<% if @user.avatar.file.nil?  %>
+        <p>
+        <% if @user.avatar.file.nil?  %>
+					<% if @user.facebook_image.nil? %>
+				 			<img src='data:image/png;base64,<%=@user.identicon %>' class="img-thumbnail">
+				 	<% else %> 
+				 			<%= image_tag(@user.facebook_image) %>
+				 	<% end %>
+				<% else %> 
+						<%= image_tag(@user.avatar_url(:profile))%>
+				<% end %>
+			 	</p>
+			</div>
 
-			<% if @user.facebook_image.nil? %>
-		 			<img src='data:image/png;base64,<%=@user.identicon %>'> 
-		 	<% else %> 
-		 			<%= image_tag(@user.facebook_image) %> 
-		 	<% end %>
-	
-	<% else %> 
-				<%= image_tag(@user.avatar_url(:profile))%>
-		<% end %>
+			<div class="panel-body">
 
-	</div>
+					<p>
+						<strong>User ID</strong><br>
+			  		<i><%=@user.id%></i>
+		  		</p>
 
+		  		<p>
+						<strong>Phone No.</strong><br>
+			  		<i><%=@user.phone_no%></i>
+		  		</p>
 
-	<table style="width:100%">
-	  	<tr>
-	  		<th>ID</th>
-	  		<td><%=@user.id%></td>
-	  	</tr>
-	  	<tr>
-	  		<th>First name</th>
-	    	<td><%=@user.first_name%></td>
-	  	</tr>
-	  	<tr>
-	    	<th>Last name</th> 
-	    	<td><%=@user.last_name%></td> 
-	  	</tr>
-	  	<tr>
-	    	<th>Phone number</th>
-	    	<td><%=@user.phone_no%></td>
-	  	</tr>
-	  	<tr>
-	    	<th>Email</th>
-	    	<td><%=@user.email%></td>
-	   	</tr>
-	   	<tr>
-	    	<th>Credit Standing</th>
-	    	<td><%=@user.credit%></td>
-	   	</tr>
+		  		<p>
+						<strong>Email</strong><br>
+			  		<i><%=@user.email%></i>
+		  		</p>
+		  	
+		  		<p>
+						<strong>Credit Standing</strong><br>
+			  		<i><%=@user.credit%></i>
+		  		</p>
 
-	   		<th>Account Type</th>
-	   		<td><%=@user.account_type.capitalize%>
+		  		<p>
+						<strong>Account Type</strong><br>
+			  		<i><%=@user.account_type.capitalize%>
+			  			
+			  		</i>
+		  		</p>
+
+	   		<div class="btn-group pull-right">
 	   			<% if @user.payments.where(status: :authorized).count == 0%>
-			    	<%= link_to 'Upgrade to Premium' , new_payment_path + "?id=" + @user.id.to_s, class: "btn btn-warning"  %>
-			    <% else %>
-			    	<span class="btn btn-success">Paid</span>
-			    <% end %>
-	   		</td>
-	   	</tr>
-	 
-	</table>
+					    	<%= link_to 'Upgrade to Premium' , new_payment_path + "?id=" + @user.id.to_s, class: "btn btn-default upgrade"  %>
+					    <% else %>
+					    	<span class="btn btn-default">Paid</span>
+					    <% end %>
+
+					<%=link_to "Edit", edit_user_registration_path, class: "btn btn-default" %>
+				</div>
 
 
 
-</div>
+
