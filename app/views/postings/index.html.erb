@@ -33,7 +33,8 @@
       <div class="thumbnail"> -->
 
       <% @postings.each do |posting| %>
-        <% if posting.availability && current_user.id != posting.user_id %>
+        <%# if posting.availability && current_user.id != posting.user_id %>
+        <% if posting.availability %>
 
       <div class="col-md-4"> <!-- has to be inside so that 3 pins appear in a row-->
         <div id="pins">

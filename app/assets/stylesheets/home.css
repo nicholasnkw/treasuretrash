@@ -25,7 +25,7 @@ body {
 .grow-posting:hover { 
 	transform: scale(1.05); 
 	z-index: 99999;
-  	/*box-shadow: 0 5px 15px rgba(0, 41, 255, 1) !important;*/
+  	box-shadow: 0 5px 15px rgba(91, 94, 92, 1) !important;
 }
 
 .row .col-md-12 {
