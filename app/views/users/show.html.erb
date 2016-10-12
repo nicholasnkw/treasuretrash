@@ -2,7 +2,7 @@
   <div class="col-md-8 col-md-offset-2">
     <div class="panel panel-default"> 
 
-      <div class="panel-heading post_image text-center">
+      <div class="panel-heading-title post_image text-center">
         <h2><%= @user.first_name%> <%=@user.last_name%></h2><br>
 
         <p>
@@ -45,17 +45,18 @@
 			  		<i><%=@user.account_type.capitalize%>
 			  			
 			  		</i>
-		  		</p>
+		  		</p><br>
 
-	   		<div class="btn-group pull-right">
+	   		<!-- <div class="btn-group pull-right"> -->
+	   			
 	   			<% if @user.payments.where(status: :authorized).count == 0%>
-					    	<%= link_to 'Upgrade to Premium' , new_payment_path + "?id=" + @user.id.to_s, class: "btn btn-default upgrade"  %>
-					    <% else %>
-					    	<span class="btn btn-default">Paid</span>
-					    <% end %>
-
-					<%=link_to "Edit", edit_user_registration_path, class: "btn btn-default" %>
-				</div>
+				    <%= link_to 'Upgrade to Premium' , new_payment_path + "?id=" + @user.id.to_s, class: "btn btn-default btn-block", style: "background-color:green;" %>
+				    <% else %>
+				    	<span class="btn btn-default">Paid</span>
+				    <% end %>
+				    <br>
+				<%=link_to "Edit", edit_user_registration_path %>
+			<!-- </div> -->
 
 
 
