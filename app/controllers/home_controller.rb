@@ -16,7 +16,13 @@ class HomeController < ApplicationController
   	if params[:others].present?
   		@postings = @postings.search_by_others(params[:others])
   	end
-  	render 'postings/index'
+
+    if params[:any].present?
+      @postings = @postings.search_any_word(params[:any])
+    end
+
+      render 'postings/index'
+
   end
 
 end
