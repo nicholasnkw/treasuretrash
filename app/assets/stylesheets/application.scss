@@ -85,10 +85,10 @@ body {
   }
 }
 
-/*#row {
-  margin-right: -15px;
-  margin-left: 8px;
-}*/
+#row {
+  margin-right: 0px;
+  /*margin-left: 8px;*/
+}
 
 /*posting#show*/
 
@@ -122,9 +122,10 @@ body {
 
 /*sign in, sign up*/
 .container{
-  min-width: 1100px;
+  min-width: 600px;
   margin: 0 auto;
   padding: 0 20px;
+  padding: 80px 120px;
 }
 
 .camera{
@@ -147,7 +148,7 @@ body {
   display: flex;  /*//enable flexbox*/
   align-items: center; /*//this center content vertically*/
   justify-content: center;  /*//this centers content horizontally*/
-  margin-top: 16px;
+  /*margin-top: 16px;*/
 }
 
 /*posting#show*/
@@ -172,9 +173,6 @@ body {
    /*   letter-spacing: 10px;*/
       font-size: 20px;
       color: #111;
-  }
-  .container {
-      padding: 80px 120px;
   }
   .person {
       border: 1px solid transparent;
@@ -349,8 +347,9 @@ fieldset[disabled] .btn-sample.active {
 }
 
 .posting-styling {
-  height: 200px;
+  height: 134px;
   overflow: scroll;
 }
-
-
+#brand {
+  font-family: 'Love Ya Like A Sister', cursive;
+}
