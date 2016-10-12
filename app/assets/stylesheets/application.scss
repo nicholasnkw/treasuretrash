@@ -97,6 +97,14 @@ body {
   margin-left: 23px;
 }
 
+                /*might not need it if the pair has started working on it*/
+#j{
+  margin-bottom: -1px;
+}
+
+#r{
+  height: 700px;
+}
 /*navbar*/
 
 /*.navbar {
@@ -138,6 +146,7 @@ body {
   display: flex;  /*//enable flexbox*/
   align-items: center; /*//this center content vertically*/
   justify-content: center;  /*//this centers content horizontally*/
+  margin-top: 16px;
 }
 
 /*posting#show*/
