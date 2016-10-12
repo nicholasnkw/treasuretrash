@@ -11,9 +11,9 @@
       <!-- <div class="row row-centered"> -->
         <div class="panel panel-default">
 
-            <div class="panel-heading post_image text-center map" id="show">
+            <div class="panel-heading post_image text-center map">
               <% @posting.avatars.each do |x| %>
-                <%= image_tag (x.medium.url) %>
+                <%= image_tag x.medium.url, :style => "width:100%" %>
               <%end%>
 
             <p>
