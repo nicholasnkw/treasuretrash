@@ -22,6 +22,7 @@ class Posting < ActiveRecord::Base
 	pg_search_scope :search_by_location, :against => [:address1, :address2, :city, :state, :zipcode]
 	pg_search_scope :search_by_category, :against => [:category]
 	pg_search_scope :search_by_others, :against => [:title, :description, :condition]
+	pg_search_scope :search_any_word, :against => :text, :using => {:tsearch => {:any_word => true}}
 
 	def full_address
 		[address1, city, state, zipcode].join(', ')
